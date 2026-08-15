@@ -1,20 +1,57 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="weather.css">
 </head>
+
 <body>
     <nav id="navbar">
-        <div class="navTitle">Country & Weather Finder </div>
+        <div class="navTitle"> Country & Weather Finder</div>
 
         <div class="navLinks">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
+            <a href="index.html">Index</a>
+            <a href="home.html">Home</a>
         </div>
 
     </nav>
 
-    <script src="country.js"></script>
+    <div id="top"></div>
+
+
+    <h2>About This Website</h2>
+    <p>
+        This website is created for the MIS455 assignment.
+        It allows users to search for a country and view
+        important country information.
+    </p>
+
+    <p>
+        Users can see the country's flag, capital, population,
+        region and other information.
+    </p>
+
+    <p>
+       The website also provides weather information for
+       the capital city of the selected country.
+    </p>
+
+    <div id="displayArea">
+        <h3>Data Sources</h3>
+
+        <p>
+         Country Data: REST Countries API
+        </p>
+
+        <p>
+        Weather Data: Open-Meteo API
+        </p>
+    </div>
+    <footer id="footer">
+        <p>MIS455 Assignment by 2311451</p>
+        <p>REST Countries and Open-Meteo API</p>
+    </footer>
 </body>
 </html>
