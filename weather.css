@@ -1,34 +1,37 @@
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
 }
 
 body {
+    margin: 0;
     font-family: Arial, sans-serif;
     background-color: #f4f6f8;
-    color: #333;
-    line-height: 1.6;
+    color: #222;
 }
 
 #navbar {
-    background-color: #1f2937;
-    color: white;
-    padding: 15px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 15px 40px;
+    background-color: #1f2937;
 }
 
 .navTitle {
     font-size: 22px;
     font-weight: bold;
+    color: white;
+}
+
+.navLinks {
+    display: flex;
+    gap: 20px;
 }
 
 .navLinks a {
     color: white;
     text-decoration: none;
-    margin-left: 20px;
+    font-size: 16px;
 }
 
 .navLinks a:hover {
@@ -44,25 +47,32 @@ h2 {
     margin: 20px 0 10px;
 }
 
-p {
-    max-width: 800px;
-    margin: 10px auto;
-    padding: 0 20px;
+h3 {
+    margin-top: 10px;
 }
 
-input {
-    display: block;
+p {
+    line-height: 1.6;
+}
+
+body > p,
+body > h2 {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#countryInput {
     width: 300px;
     padding: 10px;
-    margin: 10px auto;
-    border: 1px solid #ccc;
+    margin-top: 8px;
+    border: 1px solid #aaa;
     border-radius: 5px;
 }
 
 button {
-    display: block;
-    margin: 10px auto;
-    padding: 10px 20px;
+    padding: 10px 18px;
+    margin-top: 10px;
     border: none;
     border-radius: 5px;
     background-color: #2563eb;
@@ -85,14 +95,14 @@ button:hover {
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-    padding: 20px;
+    max-width: 1100px;
+    margin: 25px auto;
 }
 
-.countryCard,
-.weatherBox {
-    background-color: white;
+.countryCard {
     width: 280px;
     padding: 20px;
+    background-color: white;
     border-radius: 10px;
     box-shadow: 0 2px 8px #ccc;
 }
@@ -105,26 +115,21 @@ button:hover {
 }
 
 .countryCard h2 {
-    margin: 10px 0;
-}
-
-.countryCard p {
-    padding: 0;
-    margin: 5px 0;
+    text-align: left;
 }
 
 .weatherBox {
-    margin: 10px auto;
+    width: 280px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px #ccc;
 }
 
 #footer {
+    margin-top: 40px;
+    padding: 20px;
+    text-align: center;
     background-color: #1f2937;
     color: white;
-    text-align: center;
-    padding: 20px;
-    margin-top: 30px;
-}
-
-#footer p {
-    margin: 5px auto;
 }

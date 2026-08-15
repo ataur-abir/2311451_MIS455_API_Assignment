@@ -16,14 +16,13 @@ function connect() {
 
     fetch(url, {
         headers: {
-            "Authorization": "Bearer YOUR_TOKEN"
+            "Authorization": "Bearer rc_live_b421716ccd5247b2af1b8dc5d9b8751d"
         }
     })
         .then(function(response) {
             if (!response.ok) {
                 throw new Error("Country not found");
             }
-
             return response.json();
         })
         .then(function(data) {
@@ -49,9 +48,7 @@ function connect() {
                         <p><b>Population:</b> ${population.toLocaleString()}</p>
                         <p><b>Region:</b> ${region}</p>
                         <p><b>Subregion:</b> ${subregion}</p>
-                        <button onclick="getWeather(${latitude}, ${longitude}, '${capital}')">
-                            More Details
-                        </button>
+                        <button onclick="getWeather(${latitude}, ${longitude}, '${capital}')">More Details</button>
                     </div>
                 `;
             }
@@ -59,5 +56,37 @@ function connect() {
         .catch(function(error) {
             statusArea.innerHTML = error.message;
             displayArea.innerHTML = "";
+        });
+}
+
+function getWeather(latitude, longitude, capital) {
+    var weatherUrl = "https://api.open-meteo.com/v1/forecast?latitude=" +
+        latitude +
+        "&longitude=" +
+        longitude +
+        "&current=temperature_2m,relative_humidity_2m,apparent_temperature,wind_speed_10m";
+
+    fetch(weatherUrl)
+        .then(function(response) {
+            if (!response.ok) {
+                throw new Error("Weather data not found");
+            }
+            return response.json();
+        })
+        .then(function(data) {
+            var weather = data.current;
+
+            displayArea.innerHTML += `
+                <div class="weatherBox">
+                    <h3>Weather in ${capital}</h3>
+                    <p><b>Temperature:</b> ${weather.temperature_2m} °C</p>
+                    <p><b>Feels Like:</b> ${weather.apparent_temperature} °C</p>
+                    <p><b>Humidity:</b> ${weather.relative_humidity_2m} %</p>
+                    <p><b>Wind Speed:</b> ${weather.wind_speed_10m} km/h</p>
+                </div>
+            `;
+        })
+        .catch(function(error) {
+            statusArea.innerHTML = error.message;
         });
 }
